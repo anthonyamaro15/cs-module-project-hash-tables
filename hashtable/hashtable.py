@@ -155,6 +155,11 @@ class HashTable:
             ll.insert_at_head(key, value)
             self.capacity[key_index] = ll
 
+      #   load = self.get_load_factor()
+
+      #   if load > 0.7:
+      #       self.resize(len(self.capacity) * 2)
+
     def delete(self, key):
         """
         Remove the value stored with the given key.
@@ -173,6 +178,11 @@ class HashTable:
         else:
             return None
 
+        load = self.get_load_factor()
+
+        if load < 0.2:
+            self.resize(len(self.capacity) / 2)
+
     def get(self, key):
         """
         Retrieve the value stored with the given key.
@@ -186,18 +196,6 @@ class HashTable:
             return self.capacity[key_index].find(key)
         else:
             return None
-
-   #  def resize(self, new_capacity):
-   #      """
-   #      Changes the capacity of the hash table and
-   #      rehashes all key/value pairs.
-
-   #      Implement this.
-   #      """
-   #      # Your code here
-   #    #   new_value_array = []
-   #    #   for i in range(len(self.data)):
-   #    #       pass
 
     def resize(self, new_capacity):
         """
