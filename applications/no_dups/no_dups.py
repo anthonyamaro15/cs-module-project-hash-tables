@@ -1,6 +1,14 @@
 def no_dups(s):
     # Your code here
-
+    arr = s.split()
+    no_duplicates = []
+   #  no_duplicates = list(set(arr))
+   # #  print('====== ', ' '.join(no_duplicates))
+   #  return ' '.join(no_duplicates)
+    for i in arr:
+        if i not in no_duplicates:
+            no_duplicates.append(i)
+    return ' '.join(no_duplicates)
 
 
 if __name__ == "__main__":
